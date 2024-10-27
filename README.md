@@ -1,0 +1,2 @@
+## Lost Sounds
+Just a cozy website to open and and listen to some good ambient music to get you in that mood where everything around you just floats away and you are put in a empty space where your mind is free to explore all your thoughts without judgement.
