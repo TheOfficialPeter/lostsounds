@@ -1,43 +1,30 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
+import ReactPlayer from 'react-player'
+import { useState } from 'preact/hooks';
+import { FaPlay, FaPause, FaFastForward, FaFastBackward } from "react-icons/fa";
 import './app.css'
 
 export function App() {
-  const [count, setCount] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const startPlaying = () => {
+    setIsPlaying(!isPlaying);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="button-group">
+        <button>
+          <FaFastBackward></FaFastBackward>
         </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
+        <button onClick={startPlaying}>
+          {isPlaying ? <FaPause></FaPause> : <FaPlay></FaPlay>}
+        </button>
+        <button>
+          <FaFastForward></FaFastForward>
+        </button>
       </div>
-      <p>
-        Check out{' '}
-        <a
-          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
-          target="_blank"
-        >
-          create-preact
-        </a>
-        , the official Preact + Vite starter
-      </p>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
+      <div class="background" style={'background-image: url(https://img.youtube.com/vi/' + 'nqiC_D5U-LE' + '/maxresdefault.jpg' }></div>
+      <ReactPlayer playing={isPlaying} url='https://www.youtube.com/watch?v=nqiC_D5U-LE' controls={false} height={0} width={0}/>
     </>
   )
 }
